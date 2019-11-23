@@ -3,6 +3,7 @@ package programacion_generica;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 
 public class ArrayListEmpleado {
 
@@ -36,28 +37,16 @@ public class ArrayListEmpleado {
 		
 		System.out.println(listaEmpleados.size());
 		
-		for(Empleado empleado:listaEmpleados) {
+		/*for(Empleado empleado:listaEmpleados) {
 			System.out.println(empleado.dameDatos());
+		}*/
+		
+		Iterator<Empleado> mi_iterator=listaEmpleados.iterator();
+		
+		while(mi_iterator.hasNext()) {
+			System.out.println(mi_iterator.next().dameDatos());
 		}
 	}
 
 }
 
-class Empleado {
-	
-	private String nombre;
-	private int edad;
-	private double salario;
-	
-	public Empleado(String nombre, int edad, double salario) {
-
-		this.nombre = nombre;
-		this.edad = edad;
-		this.salario = salario;
-	}
-	
-	public String dameDatos() {
-		
-		return "El empleado se llama " + nombre + " Tiene " + edad + " años " + "Y un salario de " + salario;
-	}
-}
